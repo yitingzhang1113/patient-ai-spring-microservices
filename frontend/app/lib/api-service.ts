@@ -2,14 +2,11 @@ import axios from 'axios'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_GATEWAY_URL || 'http://localhost:8090'
 
-console.log('API Base URL:', API_BASE_URL) // Debug log
-
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 second timeout
 })
 
 // Request interceptor for auth tokens (when implemented)
