@@ -94,10 +94,9 @@ Work in progress; new capabilities will be added over time.
 ---
 
 ## Architecture Overview
-
-<div align="center">
-  <img src="/Users/eratozhang/Desktop/java-spring-microservices-main/architecture.png" alt="Architecture Diagram" />
-</div>
+<p align="center">
+  <img src="assets/architecture.png" alt="Architecture Diagram" />
+</p>
 
 - **Event-Driven**: Patient/Activity emit events → **Event Bus (Kafka/RabbitMQ)** → AI/Analytics consume  
 - **AI Flow**: Event → AI Service → Gemini → normalize JSON → save to MongoDB → REST → frontend  
@@ -257,13 +256,7 @@ KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094;
 - Capture RPS/P95/P99, error rate, CPU/memory, queue backlog  
 - Dashboards with Prometheus/Grafana (planned)
 
----
 
-## Join the Discord Community
-
-This source code is for the Java/Spring microservices course available on my YouTube channel. You can join the discord for help and discussion here:
-
-https://discord.gg/nCrDnfCE
 
 ---
 
