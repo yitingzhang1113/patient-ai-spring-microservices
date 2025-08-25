@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: ai-service
+  
+  data:
+    mongodb:
+      host: ${MONGODB_HOST:localhost}
+      port: ${MONGODB_PORT:27017}
+      database: ${MONGODB_DATABASE:patient_ai_db}
+      username: ${MONGODB_USERNAME:}
+      password: ${MONGODB_PASSWORD:}
+  
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    virtual-host: ${RABBITMQ_VHOST:/}
+  
+  cloud:
+    config:
+      enabled: ${CONFIG_SERVER_ENABLED:false}
+      uri: ${CONFIG_SERVER_URI:http://localhost:8888}
+    
+    discovery:
+      enabled: ${EUREKA_ENABLED:false}
+
+server:
+  port: ${SERVER_PORT:4006}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+# AI Configuration
+gemini:
+  api:
+    url: ${GEMINI_API_URL:https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent}
+    key: ${GEMINI_API_KEY:your-api-key-here}
+
+# Logging
+logging:
+  level:
+    com.pm.aiservice: ${LOG_LEVEL:INFO}
+    org.springframework.amqp: DEBUG
+    org.springframework.data.mongodb: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

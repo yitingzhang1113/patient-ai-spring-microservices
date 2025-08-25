@@ -1,0 +1,25 @@
+spring:
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+      database: patient_ai_db
+  
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin123
+
+gemini:
+  api:
+    key: ${GEMINI_API_KEY:your-docker-api-key-here}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
